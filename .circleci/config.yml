@@ -15,6 +15,7 @@ jobs:
       - run:
           name: Deploy to Vercel
           command: |
+            pnpm vercel pull --token $VERCEL_TOKEN
             pnpm vercel build --token $VERCEL_TOKEN
             pnpm vercel deploy --prebuilt --yes --token $VERCEL_TOKEN \
               --env NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY} \
