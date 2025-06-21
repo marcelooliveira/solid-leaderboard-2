@@ -16,9 +16,9 @@ jobs:
           name: Deploy to Vercel
           command: |
             # pnpm vercel build --token=$VERCEL_TOKEN
-            # print the length of the NEXT_PUBLIC_SUPABASE_ANON_KEY
             echo "Length of NEXT_PUBLIC_SUPABASE_ANON_KEY: ${#NEXT_PUBLIC_SUPABASE_ANON_KEY}"
             echo "Length of NEXT_PUBLIC_SUPABASE_URL: ${#NEXT_PUBLIC_SUPABASE_URL}"
+            echo "Length of VERCEL_TOKEN: ${#VERCEL_TOKEN}"
 
             pnpm vercel deploy --yes --name solid-leaderboard-2 --token=$VERCEL_TOKEN \
               --env NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY \
