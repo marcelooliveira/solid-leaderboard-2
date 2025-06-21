@@ -15,14 +15,16 @@ jobs:
       - run:
           name: Deploy to Vercel
           command: |
-            # pnpm vercel build --token=$VERCEL_TOKEN
-
             pnpm vercel pull --yes --token=$VERCEL_TOKEN
 
             echo "Length of NEXT_PUBLIC_SUPABASE_ANON_KEY: ${#NEXT_PUBLIC_SUPABASE_ANON_KEY}"
             echo "Length of NEXT_PUBLIC_SUPABASE_URL: ${#NEXT_PUBLIC_SUPABASE_URL}"
             echo "Length of VERCEL_TOKEN: ${#VERCEL_TOKEN}"
 
+            # define vercel project name on deploy
+            export VERCEL_PROJECT_NAME="solid-leaderboard-2"
+            pnpm vercel link --project $VERCEL_PROJECT_NAME --token=$VERCEL_TOKEN --yes
+            
             pnpm vercel deploy --yes --token=$VERCEL_TOKEN \
               --env NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY \
               --env NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL
