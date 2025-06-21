@@ -4,8 +4,6 @@ jobs:
   deploy:
     docker:
       - image: cimg/node:20.11
-    environment:
-      VERCEL_TOKEN: ${VERCEL_TOKEN}
     steps:
       - checkout
       - run:
