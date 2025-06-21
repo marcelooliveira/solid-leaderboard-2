@@ -20,7 +20,7 @@ jobs:
             echo "Length of NEXT_PUBLIC_SUPABASE_URL: ${#NEXT_PUBLIC_SUPABASE_URL}"
             echo "Length of VERCEL_TOKEN: ${#VERCEL_TOKEN}"
 
-            pnpm vercel link --yes --project solid-leaderboard-2
+            pnpm vercel pull --yes --token=$VERCEL_TOKEN
             pnpm vercel deploy --yes --token=$VERCEL_TOKEN \
               --env NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY \
               --env NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL
