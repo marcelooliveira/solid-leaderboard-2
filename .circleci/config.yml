@@ -17,7 +17,7 @@ jobs:
           command: |
             pnpm vercel pull --yes --environment=production --token=$VERCEL_TOKEN
             # pnpm vercel build --token=$VERCEL_TOKEN
-            pnpm vercel deploy --yes --token=$VERCEL_TOKEN \
+            pnpm vercel deploy --yes --name solid-leaderboard-2 --token=$VERCEL_TOKEN \
               --env NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY} \
               --env NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
 
